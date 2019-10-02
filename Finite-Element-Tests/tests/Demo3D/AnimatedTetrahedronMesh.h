@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 #include "pxr/pxr.h"
 
 #include "pxr/usd/sdf/layer.h"

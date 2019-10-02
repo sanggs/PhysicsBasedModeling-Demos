@@ -48,7 +48,7 @@ struct AnimatedMesh
     void initializeTopology()
     {
         // Create a mesh for this surface
-        m_mesh = UsdGeomMesh::Define(m_stage, SdfPath("/MeshSurface"));        
+        m_mesh = UsdGeomMesh::Define(m_stage, SdfPath("/MeshSurface"));
 
         // Create appropriate buffers for vertex counts and indices, and populate them
         VtIntArray faceVertexCounts, faceVertexIndices;

@@ -162,7 +162,7 @@ struct FiniteElementMesh : public AnimatedMesh<T, 3>
 
         ConjugateGradient<T>::Solve(systemWrapper,
             dxWrapper, rhsWrapper, qWrapper, sWrapper, rWrapper,
-            1e-4, 50);
+            1e-4, 100);
 
         // Apply corrections to positions and velocities
 

@@ -11,6 +11,7 @@
 #include "pxr/base/gf/range3f.h"
 
 #include <Eigen/Dense>
+#include <iostream>
 
 PXR_NAMESPACE_USING_DIRECTIVE
 

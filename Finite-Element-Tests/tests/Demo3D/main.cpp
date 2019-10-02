@@ -34,12 +34,12 @@ struct LatticeMesh : public AnimatedTetrahedonMesh<T>
         for(int cell_j = 0; cell_j < m_cellSize[1]; cell_j++)
         for(int cell_k = 0; cell_k < m_cellSize[1]; cell_k++){
 
-            int r = (cell_i - m_cellSize[0]/2) * (cell_i - m_cellSize[0]/2) +
-                    (cell_j - m_cellSize[1]/2) * (cell_j - m_cellSize[1]/2) +
-                    (cell_k - m_cellSize[2]/2) * (cell_k - m_cellSize[2]/2);
-
-            if(r <= m_radius * m_radius)
-                m_activeCells.push_back(std::array<int, 3>{cell_i, cell_j, cell_k});
+//            int r = (cell_i - m_cellSize[0]/2) * (cell_i - m_cellSize[0]/2) +
+//                    (cell_j - m_cellSize[1]/2) * (cell_j - m_cellSize[1]/2) +
+//                    (cell_k - m_cellSize[2]/2) * (cell_k - m_cellSize[2]/2);
+//
+//            if(r <= m_radius * m_radius)
+            m_activeCells.push_back(std::array<int, 3>{cell_i, cell_j, cell_k});
 
         }
 
@@ -64,6 +64,7 @@ struct LatticeMesh : public AnimatedTetrahedonMesh<T>
         // Make tetrahedra out of all active cells (6 tetrahedra per cell)
 
         for(const auto& cell: m_activeCells){
+            std::cout << cell[0] << " " << cell[1] << " "<< cell[2] << std::endl;
             int vertexIndices[2][2][2];
             for(int i = 0; i <= 1; i++)
             for(int j = 0; j <= 1; j++)
@@ -75,7 +76,8 @@ struct LatticeMesh : public AnimatedTetrahedonMesh<T>
                 else
                     throw std::logic_error("particle at cell vertex not found");
             }
-
+            std::cout << vertexIndices[0][0][0] << std::endl;
+            std::cout << vertexIndices[1][1][1] << std::endl;
             m_meshElements.push_back(std::array<int, 4>{ vertexIndices[0][0][0], vertexIndices[1][0][0], vertexIndices[1][1][0], vertexIndices[1][1][1]});
             m_meshElements.push_back(std::array<int, 4>{ vertexIndices[0][0][0], vertexIndices[1][0][0], vertexIndices[1][1][1], vertexIndices[1][0][1]});
             m_meshElements.push_back(std::array<int, 4>{ vertexIndices[0][0][0], vertexIndices[1][0][1], vertexIndices[1][1][1], vertexIndices[0][0][1]});

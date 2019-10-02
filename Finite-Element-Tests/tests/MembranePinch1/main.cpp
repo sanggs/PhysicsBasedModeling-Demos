@@ -271,7 +271,7 @@ struct LatticeMesh : public AnimatedMesh<T, 3>
     void simulateSubstep(const T dt)
     {
         const int nParticles = m_particleX.size();
-        std::vector<Vector2> force(nParticles);
+        std::vector<Vector2> force(nParticles, Vector2::Zero());
 
         addForce(force);
         for(int p = 0; p < nParticles; p++)

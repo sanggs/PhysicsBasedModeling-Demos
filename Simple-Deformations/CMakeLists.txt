@@ -7,7 +7,7 @@ set (CMAKE_CXX_FLAGS "-Wno-deprecated ${CMAKE_CXX_FLAGS}")
 
 add_definitions(-DBUILD_COMPONENT_SRC_PREFIX="" -DBUILD_OPTLEVEL_DEV)
 
-set(USD_ROOT_DIR ~/USD)
+set(USD_ROOT_DIR /opt/local/USD) #set USD_ROOT_DIR to the path of installation for USD. For me it is /opt/local/USD
 set(USD_LIB_DIR ${USD_ROOT_DIR}/lib/)
 set(USD_INC_DIR ${USD_ROOT_DIR}/include/)
 
